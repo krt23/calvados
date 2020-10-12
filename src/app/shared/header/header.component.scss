@@ -1,0 +1,56 @@
+.nav-border {
+  border: solid 1px #dfe2e5;
+}
+
+.navbar-header {
+  background-color: white;
+  height: 70px;
+
+  .nav-heading {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 25px;
+    padding-top: 25px;
+
+    h1 {
+      display: none;
+      outline: none;
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.11;
+      letter-spacing: normal;
+      color: #131c2a;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+
+  .navbar-right {
+    padding-top: 15px;
+    float: right;
+
+    button {
+      height: 40px;
+
+      &.btn-avatar {
+        padding-right: 25px;
+        padding-left: 11px;
+      }
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #388E3C;
+    }
+  }
+
+  .mat-button {
+    vertical-align: middle;
+  }
+}

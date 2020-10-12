@@ -1,11 +1,52 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {SidebarComponent} from './shared/sidebar/sidebar.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '', component: SidebarComponent, children: [
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        pathMatch: 'full'
+      },
+      {
+        path: 'login',
+        loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+      },
+      {
+        path: 'projects',
+        loadChildren: () => import('./tasks-and-projects/tasks-and-projects.module').then(m => m.TasksAndProjectsModule),
+        pathMatch: 'full'
+      },
+      {
+        path: 'calendar',
+        loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule),
+        pathMatch: 'full'
+      },
+      {
+        path: 'employees',
+        loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule),
+        pathMatch: 'full'
+      },
+      {
+        path: 'secret-santa',
+        loadChildren: () => import('./secret-santa/secret-santa.module').then(m => m.SecretSantaModule),
+        pathMatch: 'full'
+      }
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,0 +1,31 @@
+<nav class="nav-border" *ngIf="show">
+  <div class="navbar-header">
+
+
+    <div class="nav-heading">
+      <h1 *ngFor="let header of (adminMode ? adminNavHeaders: navHeaders)" routerLink="{{ header.link }}"
+          routerLinkActive="active" class="name">
+        {{ header.name }}
+      </h1>
+    </div>
+
+
+    <div class="navbar-right layout row">
+      <button mat-button [matMenuTriggerFor]="userBlock" class="btn-avatar">
+        <div class="user-avatar"></div>
+      </button>
+      <mat-menu #userBlock="matMenu">
+        <button mat-menu-item (click)="goToProfile()">
+          UserProfile
+        </button>
+        <button mat-menu-item (click)="onLogout()">
+          Logout
+        </button>
+      </mat-menu>
+
+
+    </div>
+
+
+  </div>
+</nav>

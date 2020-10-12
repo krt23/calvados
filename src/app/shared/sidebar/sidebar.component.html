@@ -1,0 +1,37 @@
+<section id="main-wrapper">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened *ngIf="show">
+      <div class="logo" routerLink="/">
+        ARTCODE
+      </div>
+      <div class="main-nav">
+        <ng-container *ngIf="isAdmin$; else appView">
+          <div class="nav-item"
+               *ngFor="let navItem of adminNavbar"
+               routerLink="{{ navItem.link }}"
+               routerLinkActive="active">
+            <mat-icon>{{ navItem.icon }}</mat-icon>
+          </div>
+        </ng-container>
+        <ng-template #appView>
+            <div class="nav-item"
+                 *ngFor="let navItem of navbar"
+                 routerLink="{{ navItem.link }}"
+                 routerLinkActive="active">
+              <mat-icon>{{ navItem.icon }}</mat-icon>
+              <div class="name">{{ navItem.name }}</div>
+            </div>
+        </ng-template>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div id="main-content">
+        <app-header></app-header>
+      </div>
+      <div class="overflow-wrapper" [ngClass]="{'no-user': !(user$)}">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</section>
+

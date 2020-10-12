@@ -1,0 +1,45 @@
+:host {
+  display: flex;
+  flex-basis: inherit;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f5fbff;
+}
+
+.container {
+  margin-top: 160px;
+  max-width: 500px;
+  width: 100%;
+
+  .login-caption {
+    height: 35px;
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .login-form {
+    margin-top: 40px;
+
+    .mat-form-field {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+      padding: 7px;
+    }
+
+    .additional-section {
+      font-weight: 500;
+      margin-bottom: 42px;
+
+      a {
+        float: right;
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="login-caption">
+    Sign In
+  </div>
+  <div class="login-form">
+    <form [formGroup]="signInForm" (ngSubmit)="logIn()">
+      <mat-form-field class="example-full-width" [appearance]="'outline'">
+        <mat-label>
+          Login
+        </mat-label>
+        <input matInput
+               type="text"
+               id="login"
+               [formControl]="login">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" [appearance]="'outline'">
+        <mat-label>
+          Password
+        </mat-label>
+        <input matInput
+               type="password"
+               id="password"
+               [formControl]="password">
+      </mat-form-field>
+      <button mat-flat-button
+              color="primary"
+              [disabled]="!signInForm.valid || isLoading">
+        {{ 'Sign In'.toUpperCase() }}
+      </button>
+    </form>
+  </div>
+</div>
+
+
