@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Employees} from '../MOCK-DATA/mock-data';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {EmployeesInterface} from '../MOCK-DATA/mock-data.model';
+import {EmployeesInterface} from '../core/models/employees.model';
+import {EmployeesService} from '../core/services/employees.service';
 
 
 @Component({
@@ -17,16 +18,23 @@ import {EmployeesInterface} from '../MOCK-DATA/mock-data.model';
   ],
 })
 export class EmployeesComponent implements OnInit, OnDestroy {
-  public dataSource = Employees;
+  // public dataSource = Employees;
+  public dataSource: EmployeesInterface;
   public columnsToDisplay: string[] = ['name', 'birthday', 'email', 'phone', 'project', 'position', 'dateStart'];
   public expandedElement: EmployeesInterface | null;
 
   constructor(
+    private EmployeesService: EmployeesService
   ) {
   }
 
   ngOnInit(): void {
+    this.getData();
 
+  }
+
+  getData(): void {
+    this.EmployeesService.getData().subscribe(data => this.dataSource = data);
   }
 
   ngOnDestroy(): void {

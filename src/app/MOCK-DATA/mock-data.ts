@@ -108,11 +108,13 @@ export const Projects = [
     status: 'active',
     descriptions: '',
     employees: [
-      { name: 'Anatolii',
+      {
+        name: 'Anatolii',
         surname: 'T',
         position: 'Developer'
       },
-      { name: 'Igor',
+      {
+        name: 'Igor',
         surname: 'K',
         position: 'Developer'
       }]
@@ -123,11 +125,13 @@ export const Projects = [
     status: 'active',
     descriptions: '',
     employees: [
-      { name: 'Anatolii',
+      {
+        name: 'Anatolii',
         surname: 'T',
         position: 'Developer'
       },
-      { name: 'Anatolii',
+      {
+        name: 'Anatolii',
         surname: 'Tsurkan',
         position: 'Developer'
       }]
@@ -138,11 +142,13 @@ export const Projects = [
     status: 'active',
     descriptions: '',
     employees: [
-      { name: 'Igor',
+      {
+        name: 'Igor',
         surname: 'K',
         position: 'Developer'
       },
-      { name: 'Igor',
+      {
+        name: 'Igor',
         surname: 'K',
         position: 'Developer'
       }]
@@ -153,13 +159,39 @@ export const Projects = [
     status: 'active',
     descriptions: '',
     employees: [
-      { name: 'Tetyana',
+      {
+        name: 'Tetyana',
         surname: 'L',
         position: 'Developer'
       },
-      { name: 'Tetyana',
+      {
+        name: 'Tetyana',
         surname: 'L',
         position: 'Developer'
       }]
   },
+];
+
+
+export const Notifications = [
+  {
+    title: 'string',
+    icon: 'mailbox',
+    message: 'string'
+  },
+  {
+    title: 'string',
+    icon: 'card_giftcard',
+    message: 'string'
+  },
+  {
+    title: 'string',
+    icon: 'mailbox',
+    message: 'string'
+  },
+  {
+    title: 'string',
+    icon: 'card_giftcard',
+    message: 'string'
+  }
 ];

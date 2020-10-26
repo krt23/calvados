@@ -1,0 +1,107 @@
+.badge-container {
+  background: #de4e4e;
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  transform: none;
+}
+
+.badge-container:before {
+  content: attr(badge);
+}
+
+.badge-small {
+  top: 0;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  line-height: 16px;
+}
+cdk-virtual-scroll-viewport {
+  &.virtual-scroll {
+    overflow-x: hidden;
+    height: 480px;
+    width: 350px;
+  }
+}
+.notification-button {
+  height: 40px;
+  padding: 0;
+  min-width: 46px;
+}
+.mat-menu-panel {
+  &.notification-menu {
+    max-width: 350px;
+    max-height: 500px;
+  }
+}
+
+.ntf-record {
+  width: auto;
+  height: 50px;
+  padding: 10px;
+  margin: 0 10px;
+  cursor: pointer;
+  .mb-avatar {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    line-height: 37px;
+    text-align: center;
+    background-color: #dfe2e5;
+    color: #979fa8;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    mat-icon {
+      line-height: 1.7;
+      width: 20px;
+      font-size: 20px;
+    }
+  }
+  .text {
+    flex: 1 1 0;
+    margin: 0 10px;
+    line-height: 20px;
+    font-size: 14px;
+    .header {
+      font-weight: 500;
+      max-height: 20px;
+      .notification-time {
+        min-width: 55px;
+        color: #979fa8;
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+    .content {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #979fa8;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      max-height: 50px;
+      line-height: 25px;
+    }
+  }
+  &:hover {
+    background-color: rgba(233, 235, 239, 0.5);
+    border-radius: 4px;
+    .text {
+      .header {
+        color: #1447cc;
+      }
+      .content {
+        color: #0d1116;
+      }
+    }
+  }
+}

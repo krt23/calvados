@@ -11,6 +11,24 @@
 
 
     <div class="navbar-right layout row">
+      <ng-container [ngSwitch]="headerState">
+        <ng-container *ngSwitchCase="headerStateConfig.projects">
+          <button mat-flat-button
+                  color="primary">
+            New Project
+          </button>
+        </ng-container>
+        <ng-container *ngSwitchCase="headerStateConfig.calendar"></ng-container>
+        <ng-container *ngSwitchCase="headerStateConfig.employees">
+          <button mat-flat-button
+                  color="primary">
+            New Employee
+          </button>
+        </ng-container>
+        <ng-container *ngSwitchCase="headerStateConfig.secretSanta"></ng-container>
+      </ng-container>
+
+      <app-notifications></app-notifications>
       <button mat-button [matMenuTriggerFor]="userBlock" class="btn-avatar">
         <div class="user-avatar"></div>
       </button>

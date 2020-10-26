@@ -8,7 +8,9 @@ import {SharedModule} from './shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {EmployeesInterceptor} from './core/interceptors/employees.interceptor';
+import {EmployeesService} from './core/services/employees.service';
 
 @NgModule({
   imports: [
@@ -25,7 +27,19 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+    EmployeesService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: EmployeesInterceptor,
+      multi: true
+    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: ErrorInterceptor,
+    //   multi: true
+    // },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

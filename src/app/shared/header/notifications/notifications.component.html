@@ -1,0 +1,58 @@
+<button mat-button class="notification-button default" [matMenuTriggerFor]="ntf">
+  <span *ngIf="totalNotifications" class="badge-container badge-small" [attr.badge]="countBadge"></span>
+  <mat-icon>notifications</mat-icon>
+</button>
+
+<mat-menu #ntf="matMenu" class="notification-menu" [backdropClass]="'notification-menu'">
+  <ng-container *ngIf="totalNotifications; else noNtf">
+    <ng-container *ngIf="totalNotifications > 6; else notificationContainer">
+      <cdk-virtual-scroll-viewport #scrollContainer
+                                   [itemSize]="70"
+                                   minBufferPx="490"
+                                   maxBufferPx="980"
+                                   [style.height.px]="480"
+                                   [style.width.px]="350"
+                                   class="virtual-scroll"
+      >
+        <ng-container *cdkVirtualFor="let notification of notifications">
+          <ng-container *ngTemplateOutlet="notificationTemplate; context: {notification: notification}"></ng-container>
+        </ng-container>
+      </cdk-virtual-scroll-viewport>
+    </ng-container>
+    <ng-template #notificationContainer>
+      <ng-container *ngFor="let notification of notifications">
+        <ng-container *ngTemplateOutlet="notificationTemplate; context: {notification: notification}"></ng-container>
+      </ng-container>
+    </ng-template>
+  </ng-container>
+  <ng-template #noNtf>
+    <div class="ntf-record">
+      <div class="text">
+        <p class="content text-align-center">Notifications</p>
+      </div>
+    </div>
+  </ng-template>
+</mat-menu>
+
+<ng-template #notificationTemplate let-notification="notification">
+  <div class="ntf-record layout row center">
+    <div class="mb-avatar">
+      <mat-icon>{{notification.icon}}</mat-icon>
+    </div>
+    <div class="text">
+      <div class="header layout row space-between">
+        <div class="notification-type">
+          {{notification.title}}
+        </div>
+        <div class="notification-time">
+<!--          {{changeFormatDate(notification.createdAt)}}-->
+        </div>
+      </div>
+      <div class="content"
+           [innerHTML]="notification.message"
+           matTooltip="{{notification.message }}"
+           matTooltipClass="tooltip-full-width"
+      ></div>
+    </div>
+  </div>
+</ng-template>

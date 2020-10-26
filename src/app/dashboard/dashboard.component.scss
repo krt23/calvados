@@ -1,0 +1,122 @@
+:host {
+  display: flex;
+  max-height: 100%;
+  flex: 1 1 0;
+}
+
+.overlay {
+  display: none;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background-color: rgba(13, 17, 22, 0.8);
+  top: 0;
+  color: white;
+
+  .play {
+    position: absolute;
+    top: calc(50% - 21px);
+    left: calc(50% - 21px);
+    cursor: pointer;
+
+    mat-icon {
+      font-size: 42px;
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  .duration {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 12px;
+    padding: 3px 8px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+.mat-drawer-container.dashboard {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: stretch;
+
+  .mat-drawer-content {
+    flex-direction: column;
+    display: flex;
+
+    &.tiles {
+      height: auto;
+      margin-bottom: 20px;
+    }
+    &.tiles {
+      flex-direction: row;
+      max-height: 77px;
+      flex: 1;
+      .tile {
+        display: flex;
+        cursor: pointer;
+        width: 35%;
+        margin-right: 20px;
+        height: 75px;
+        box-sizing: border-box;
+        border-top: 5px solid #3bcfb9;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+        background-color: white;
+        padding: 20px 20px 25px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 25px;
+        text-transform: uppercase;
+        letter-spacing: 0.25px;
+        color: #979fa8;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .counter {
+          text-align: right;
+          direction: rtl;
+          display: flex;
+          flex: auto;
+          font-size: 18px;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 25px;
+          letter-spacing: 1px;
+          color: #0d1116;
+        }
+
+        &.recreation {
+          border-color: #ef9e1a;
+        }
+
+        &.birthday {
+          border-color: #de4e4e;
+        }
+
+        &:hover {
+          color: #607D8B;
+          box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px 0 rgba(0, 0, 0, 0.14);
+
+          .counter {
+            color: #607D8B;
+          }
+        }
+      }
+    }
+  }
+}

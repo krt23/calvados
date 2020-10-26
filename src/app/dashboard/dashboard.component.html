@@ -1,1 +1,29 @@
-<p>dashboard works!</p>
+<mat-drawer-container class="dashboard">
+    <mat-drawer-content class="tiles">
+      <div class="tile vacation">
+        <span>
+          Vacation
+        </span>
+        <div class="counter">
+          {{ folderStatistic ? 20 : 0 }}
+        </div>
+      </div>
+      <div class="tile recreation">
+        <span>
+        Recreation
+        </span>
+        <div class="counter">
+          {{ folderStatistic ? 10 : 0 }}
+        </div>
+      </div>
+      <div class="tile birthday">
+        <span>
+         Birthday
+        </span>
+        <div class="counter">
+          {{ folderStatistic ? 2 : 0 }}
+        </div>
+      </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+

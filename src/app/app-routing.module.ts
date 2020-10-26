@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'projects',
-        loadChildren: () => import('./tasks-and-projects/tasks-and-projects.module').then(m => m.TasksAndProjectsModule),
+        loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule),
         pathMatch: 'full'
       },
       {
