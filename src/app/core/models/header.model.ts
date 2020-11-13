@@ -28,7 +28,7 @@ export const headerStateRoutesMatch: IHeaderStateRoutesMatch = {
     exactMatch: false
   },
   employees: {
-    route: '/employees',
+    route: '/employee',
     exactMatch: false
   },
   secretSanta: {

@@ -4,6 +4,7 @@ import {Subject} from 'rxjs';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter, takeUntil} from 'rxjs/operators';
 import {HeaderState, headerStateRoutesMatch, IRoutesMatch} from '../../core/models/header.model';
+import {CoreService} from '../../core/services/core.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public headerStateConfig = HeaderState;
   public user = true;
   public show = true;
-  public navHeaders = SidebarContent;
+  public navHeaders =  this.coreService.deepCopy(SidebarContent);
   public adminNavHeaders = AdminSidebarContent;
 
   public adminMode = false;
@@ -23,11 +24,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    public router: Router
+    public router: Router,
+    private coreService: CoreService,
   ) {
   }
 
   ngOnInit(): void {
+    this.navHeaders.push(
+      {
+        icon: '',
+        name: 'New Employee',
+        link: '/employees/new'
+      }
+    );
     if (this.router.url === '/login') {
       this.show = false;
     }

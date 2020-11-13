@@ -1,16 +1,12 @@
 <nav class="nav-border" *ngIf="show">
   <div class="navbar-header">
-
-
     <div class="nav-heading">
       <h1 *ngFor="let header of (adminMode ? adminNavHeaders: navHeaders)" routerLink="{{ header.link }}"
           routerLinkActive="active" class="name">
         {{ header.name }}
       </h1>
     </div>
-
-
-    <div class="navbar-right layout row">
+    <div class="navbar-right layout">
       <ng-container [ngSwitch]="headerState">
         <ng-container *ngSwitchCase="headerStateConfig.projects">
           <button mat-flat-button
@@ -21,7 +17,9 @@
         <ng-container *ngSwitchCase="headerStateConfig.calendar"></ng-container>
         <ng-container *ngSwitchCase="headerStateConfig.employees">
           <button mat-flat-button
-                  color="primary">
+                  color="primary"
+                  class="roles"
+                  routerLink="/employees/new">
             New Employee
           </button>
         </ng-container>
@@ -40,10 +38,6 @@
           Logout
         </button>
       </mat-menu>
-
-
     </div>
-
-
   </div>
 </nav>

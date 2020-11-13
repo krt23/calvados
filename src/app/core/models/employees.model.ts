@@ -15,3 +15,11 @@ export interface Employees {
   position: string;
 }
 
+export interface NewEmployee {
+  login: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+}
+

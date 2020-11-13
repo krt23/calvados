@@ -29,7 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/angular-calendar/scss/angular-calendar.scss",
+              "./node_modules/angular-calendar/scss/angular-calendar.scss"
 
             ],
             "scripts": [
@@ -98,7 +98,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/angular-calendar/scss/angular-calendar.scss",
+              "./node_modules/angular-calendar/scss/angular-calendar.scss"
 
             ],
             "scripts": [

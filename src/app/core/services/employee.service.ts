@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {EmployeesInterface} from '../models/employees.model';
 
 @Injectable()
-export class EmployeesService {
+export class EmployeeService {
 
   private postsURL = 'https://jsonplaceholder.typicode.com/posts';
 

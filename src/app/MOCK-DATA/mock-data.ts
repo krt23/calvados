@@ -1,3 +1,16 @@
+export const Users = [
+  {
+    login: 'admin',
+    password: 'admin'
+  },
+  {
+    login: 'user',
+    password: 'user'
+  }
+
+];
+
+
 export const Employees = [
   {
     name: 'Tetyana',

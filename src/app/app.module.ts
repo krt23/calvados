@@ -10,7 +10,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {EmployeesInterceptor} from './core/interceptors/employees.interceptor';
-import {EmployeesService} from './core/services/employees.service';
+import {EmployeeService} from './core/services/employee.service';
 
 @NgModule({
   imports: [
@@ -28,7 +28,7 @@ import {EmployeesService} from './core/services/employees.service';
     AppComponent
   ],
   providers: [
-    EmployeesService,
+    EmployeeService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: EmployeesInterceptor,

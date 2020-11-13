@@ -1,0 +1,130 @@
+.container {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px;
+  // box-sizing: border-box;
+  max-height: 100%;
+  input {
+    padding: 3px 0;
+  }
+  .content {
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+    background-color: #ffffff;
+    box-sizing: border-box;
+    max-width: 100%;
+    flex: 1 1 0;
+    padding-bottom: 20px;
+    .user-tabs {
+      .tab {
+        padding: 0 20px;
+        border-bottom: 1px solid #dfe2e5;
+        border-top: 1px solid #dfe2e5;
+        width: 166px;
+        height: 48px;
+        box-sizing: border-box;
+        line-height: 48px;
+        color: #979fa8;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-align: center;
+        cursor: pointer;
+
+        &.active {
+          color: #1447cc;
+          border-bottom: 2px solid #1447cc;
+        }
+
+        &.empty {
+          flex: 1 1 0;
+        }
+      }
+    }
+  }
+}
+
+
+.personal-settings form {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-top: 20px;
+
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 25px);
+    &.personal-info {
+      margin-right: 50px;
+    }
+    .input-line {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .input {
+        width: calc(50% - 20px);
+        position: relative;
+      }
+
+      .selected-locale {
+        position: absolute;
+        margin-top: 18px;
+        margin-left: 12px;
+      }
+
+      mat-form-field {
+        width: 100%;
+        mat-icon {
+          position: absolute;
+          right: 0;
+          cursor: pointer;
+          opacity: 0.3;
+          &:hover {
+            opacity: 1;
+            color: #1447cc;
+          }
+        }
+      }
+
+      &.checkbox {
+        margin-bottom: 17px;
+
+        mat-checkbox {
+          font-size: 16px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          color: #131c2a;
+        }
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 20px;
+  &.register {
+    flex-direction: row;
+    margin-bottom: 50px;
+    button {
+      width: 210px;
+      line-height: 40px;
+      letter-spacing: 0.75px;
+      padding: 0 10px;
+    }
+  }
+  padding-right: 20px;
+  button {
+    width: 180px;
+  }
+
+  .disable-color {
+    margin-right: 20px;
+  }
+}

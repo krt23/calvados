@@ -1,0 +1,68 @@
+<div class="layout row container">
+  <div class="content layout column">
+    <div class="personal-settings">
+      <form [formGroup]="employeeProfileEditForm" role="form" class="form-horizontal">
+        <div class="personal-info section">
+          <div class="block-header">
+            Sign In Settings
+          </div>
+          <div class="input-line">
+            <div class="input">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                   Login
+                </mat-label>
+                <input matInput [formControl]="login">
+              </mat-form-field>
+            </div>
+            <div class="input">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                   Password
+                </mat-label>
+                <input matInput [formControl]="password">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="password section">
+          <div class="block-header">
+            Personal Settings
+          </div>
+          <div class="input-line">
+            <mat-form-field appearance="outline">
+              <mat-label>
+               Name
+              </mat-label>
+              <input matInput [formControl]="firstName">
+            </mat-form-field>
+          </div>
+          <div class="input-line">
+            <mat-form-field appearance="outline">
+              <mat-label>
+             Surname
+              </mat-label>
+              <input matInput [formControl]="lastName">
+            </mat-form-field>
+          </div>
+          <div class="input-line">
+            <mat-form-field appearance="outline">
+              <mat-label>
+             Middle Name
+              </mat-label>
+              <input matInput [formControl]="middleName">
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+      <mat-divider></mat-divider>
+      <div class="buttons">
+        <button mat-flat-button color="primary" (click)="onSubmit()"
+                [disabled]="employeeProfileEditForm.invalid">
+          Save
+        </button>
+        <button mat-flat-button class="disable-color" routerLink="/employees"> Cancel </button>
+      </div>
+    </div>
+  </div>
+</div>
