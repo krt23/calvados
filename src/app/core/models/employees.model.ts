@@ -1,5 +1,8 @@
 export interface EmployeesInterface {
-  name: string;
+  id: number;
+  firstName: string;
+  lastName: string;
+  middleName: string;
   birthday: string;
   email: string;
   phone: string;
@@ -10,12 +13,14 @@ export interface EmployeesInterface {
 }
 
 export interface Employees {
-  name: string;
-  surname: string;
+  id: number;
+  firstName: string;
+  lastName: string;
   position: string;
 }
 
 export interface NewEmployee {
+  id: number;
   login: string;
   password: string;
   firstName: string;

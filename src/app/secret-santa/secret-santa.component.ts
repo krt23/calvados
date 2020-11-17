@@ -36,57 +36,63 @@ export class SecretSantaComponent implements OnInit, OnDestroy {
     (group.get('membersList') as FormArray).removeAt(index);
   }
 
-
-
-
-  shuffle() {
+  public createPair() {
     const membersList = this.secretSanta.get('membersList').value;
     const howManyPeople = membersList.length;
+    const result = [];
     if (2 < howManyPeople) {
-      const peopleToGive = [];
-      const peopleToRecieve = [];
+      const peopleToGive = membersList.slice();
+      const peopleToRecieve = membersList.slice();
       let howManyLeft = howManyPeople;
 
       while (1 < howManyLeft) {
         const randGive = Math.floor(Math.random() * howManyLeft);
         const randRec = Math.floor(Math.random() * howManyLeft);
         if (peopleToGive[randGive] !== peopleToRecieve[randRec]) {
+          result.push({
+            sender: peopleToGive[randGive],
+            receiver: peopleToRecieve[randRec]
+          });
           peopleToGive.splice(randGive, 1);
           peopleToRecieve.splice(randRec, 1);
           howManyLeft--;
+
         } else {
           continue;
         }
       }
-      this.peopleToGive = peopleToGive[0];
-      this.peopleToRecieve = peopleToRecieve[0];
+      result.push({
+        sender: peopleToGive[0],
+        receiver: peopleToRecieve[0]
+      });
+      this.result = result;
     }
   }
 
 
-  public createPair() {
-    const membersList = this.secretSanta.get('membersList').value;
-    const result = [];
-    const recipients = membersList.slice();
-    for (let i = 0; i < membersList.length; i++) {
-      const sender = membersList[i];
-      console.log(sender);
-      if (sender) {
-        let recipientIndex = Math.floor(Math.random() * recipients.length);
-        while (recipients[recipientIndex] === sender) {
-          recipientIndex = Math.floor(Math.random() * recipients.length);
-        }
-        const receiver = recipients.splice(recipientIndex, 1)[0];
-        console.log(receiver);
-        result.push({
-          sender,
-          receiver
-        });
-      }
-    }
-    console.log(result);
-    this.result = result;
-  }
+  // public createPair() {
+  //   const membersList = this.secretSanta.get('membersList').value;
+  //   const result = [];
+  //   const recipients = membersList.slice();
+  //   for (let i = 0; i < membersList.length; i++) {
+  //     const sender = membersList[i];
+  //     console.log(sender);
+  //     if (sender) {
+  //       let recipientIndex = Math.floor(Math.random() * recipients.length);
+  //       while (recipients[recipientIndex] === sender) {
+  //         recipientIndex = Math.floor(Math.random() * recipients.length);
+  //       }
+  //       const receiver = recipients.splice(recipientIndex, 1)[0];
+  //       console.log(receiver);
+  //       result.push({
+  //         sender,
+  //         receiver
+  //       });
+  //     }
+  //   }
+  //   console.log(result);
+  //   this.result = result;
+  // }
 
   ngOnDestroy(): void {
     this.unsubscribe$.complete();

@@ -1,20 +1,29 @@
 export const Users = [
   {
+    id: 1,
     login: 'admin',
-    password: 'admin'
+    password: 'admin',
+    firstName: 'T',
+    lastName: 'R',
+    token: 'admin'
   },
   {
+    id: 2,
     login: 'user',
-    password: 'user'
+    password: 'user',
+    firstName: 'A',
+    lastName: 'L',
+    token: 'user'
   }
-
 ];
 
 
 export const Employees = [
   {
-    name: 'Tetyana',
-    surname: 'L',
+    id: 1,
+    firstName: 'Tetyana',
+    lastName: 'L',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'tetiana_lei@gmail.com',
     phone: '+380501234598',
@@ -24,8 +33,10 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Igor',
-    surname: 'K',
+    id: 2,
+    firstName: 'Igor',
+    lastName: 'K',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'igor_k@gmail.com',
     phone: '+380501234598',
@@ -35,8 +46,10 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Anatolii',
-    surname: 'T',
+    id: 3,
+    firstName: 'Anatolii',
+    lastName: 'T',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'anatolii_tsurkan@gmail.com',
     phone: '+380501234598',
@@ -46,8 +59,9 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Tetyana',
-    surname: 'L',
+    firstName: 'Tetyana',
+    lastName: 'L',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'tetiana_lei@gmail.com',
     phone: '+380501234598',
@@ -57,8 +71,10 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Igor',
-    surname: 'K',
+    id: 4,
+    firstName: 'Igor',
+    lastName: 'K',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'igor_k@gmail.com',
     phone: '+380501234598',
@@ -68,8 +84,10 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Anatolii',
-    surname: 'T',
+    id: 5,
+    firstName: 'Anatolii',
+    lastName: 'T',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'anatolii_tsurkan@gmail.com',
     phone: '+380501234598',
@@ -79,8 +97,10 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Tetyana',
-    surname: 'L',
+    id: 6,
+    firstName: 'Tetyana',
+    lastName: 'L',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'tetiana_lei@gmail.com',
     phone: '+380501234598',
@@ -90,8 +110,10 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Igor',
-    surname: 'K',
+    id: 7,
+    firstName: 'Igor',
+    lastName: 'K',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'igor_k@gmail.com',
     phone: '+380501234598',
@@ -101,8 +123,10 @@ export const Employees = [
     skills: 'some skills'
   },
   {
-    name: 'Anatolii',
-    surname: 'T',
+    id: 8,
+    firstName: 'Anatolii',
+    lastName: 'T',
+    middleName: 'F',
     birthday: '01.01.1990',
     email: 'anatolii_tsurkan@gmail.com',
     phone: '+380501234598',
@@ -116,70 +140,74 @@ export const Employees = [
 
 export const Projects = [
   {
+    id: 1,
     name: 'Big project',
     dateStart: '01.01.2020',
     status: 'active',
     descriptions: '',
     employees: [
       {
-        name: 'Anatolii',
-        surname: 'T',
+        firstName: 'Anatolii',
+        lastName: 'T',
         position: 'Developer'
       },
       {
-        name: 'Igor',
-        surname: 'K',
+        firstName: 'Igor',
+        lastName: 'K',
         position: 'Developer'
       }]
   },
   {
+    id: 2,
     name: 'Big project',
     dateStart: '01.01.2020',
     status: 'active',
     descriptions: '',
     employees: [
       {
-        name: 'Anatolii',
-        surname: 'T',
+        firstName: 'Anatolii',
+        lastName: 'T',
         position: 'Developer'
       },
       {
-        name: 'Anatolii',
-        surname: 'Tsurkan',
+        firstName: 'Anatolii',
+        lastName: 'Tsurkan',
         position: 'Developer'
       }]
   },
   {
+    id: 3,
     name: 'Big project',
     dateStart: '01.01.2020',
     status: 'active',
     descriptions: '',
     employees: [
       {
-        name: 'Igor',
-        surname: 'K',
+        firstName: 'Igor',
+        lastName: 'K',
         position: 'Developer'
       },
       {
-        name: 'Igor',
-        surname: 'K',
+        firstName: 'Igor',
+        lastName: 'K',
         position: 'Developer'
       }]
   },
   {
+    id: 4,
     name: 'Big project',
     dateStart: '01.01.2020',
     status: 'active',
     descriptions: '',
     employees: [
       {
-        name: 'Tetyana',
-        surname: 'L',
+        firstName: 'Tetyana',
+        lastName: 'L',
         position: 'Developer'
       },
       {
-        name: 'Tetyana',
-        surname: 'L',
+        firstName: 'Tetyana',
+        lastName: 'L',
         position: 'Developer'
       }]
   },

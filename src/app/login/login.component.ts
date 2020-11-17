@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Users} from '../MOCK-DATA/mock-data';
 import {Router} from '@angular/router';
+import {AuthService} from '../core/services/auth.service';
+import {catchError, switchMap, take} from 'rxjs/operators';
+import {throwError} from 'rxjs';
+import {ConsoleLogger} from '@angular/compiler-cli/ngcc';
 
 
 @Component({
@@ -12,9 +16,11 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   public isLoading = false;
   public signInForm: FormGroup;
+  public error: string = null;
 
   constructor(
     private router: Router,
+    private authService: AuthService
   ) {
   }
 
@@ -38,11 +44,18 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
-    const log = Users.find(({login}) => login === this.login.value);
-    const pass = Users.find(({password}) => password === this.password.value);
-    if (log && pass) {
-      this.router.navigate(['/', 'dashboard']);
+    if (!this.signInForm.valid) {
+      return;
     }
+    this.isLoading = true;
+    this.authService.login(this.login.value, this.password.value).subscribe(result => {
+      console.log(result);
+      this.router.navigate(['/', 'dashboard']);
+      },
+      error => {
+        this.error = 'Auth data error';
+        this.isLoading = false;
+      });
   }
 
 }

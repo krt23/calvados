@@ -2,16 +2,17 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {EmployeesInterface} from '../models/employees.model';
+import {CoreService} from './core.service';
+import {api} from '../../../environments/api';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class EmployeeService {
-
-  private postsURL = 'https://jsonplaceholder.typicode.com/posts';
-
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<EmployeesInterface> {
-    return this.http.get<EmployeesInterface>(this.postsURL);
+  getEmployees(): Observable<EmployeesInterface> {
+    const url = CoreService.baseUrl() + api.user.getEmployees;
+    console.log(url);
+    return this.http.get<EmployeesInterface>('http://localhost:4200:/employees');
   }
 
 }

@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {EmployeesInterface} from '../../core/models/employees.model';
 import {EmployeeService} from '../../core/services/employee.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-employee-list',
@@ -18,21 +19,23 @@ import {EmployeeService} from '../../core/services/employee.service';
 export class EmployeeListComponent implements OnInit, OnDestroy {
   // public dataSource = Employees;
   public dataSource: EmployeesInterface;
-  public columnsToDisplay: string[] = ['name', 'birthday', 'email', 'phone', 'project', 'position', 'dateStart'];
+  public columnsToDisplay: string[] = ['firstName', 'birthday', 'email', 'phone', 'project', 'position', 'dateStart'];
   public expandedElement: EmployeesInterface | null;
 
   constructor(
-    private EmployeeService: EmployeeService
+    private employeeService: EmployeeService
   ) {
   }
 
   ngOnInit(): void {
-    this.getData();
+    this.getEmployees();
 
   }
 
-  getData(): void {
-    this.EmployeeService.getData().subscribe(data => this.dataSource = data);
+  getEmployees(): void {
+    this.employeeService.getEmployees().pipe(first()).subscribe(employees => {
+      this.dataSource = employees;
+    });
   }
 
   ngOnDestroy(): void {

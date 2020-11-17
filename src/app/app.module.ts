@@ -8,9 +8,8 @@ import {SharedModule} from './shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {EmployeesInterceptor} from './core/interceptors/employees.interceptor';
-import {EmployeeService} from './core/services/employee.service';
+import {HttpClientModule} from '@angular/common/http';
+import {fakeBackendProvider} from './core/interceptors/api.interceptor';
 
 @NgModule({
   imports: [
@@ -28,17 +27,7 @@ import {EmployeeService} from './core/services/employee.service';
     AppComponent
   ],
   providers: [
-    EmployeeService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: EmployeesInterceptor,
-      multi: true
-    },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: ErrorInterceptor,
-    //   multi: true
-    // },
+    fakeBackendProvider,
   ],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,7 @@ import {NavigationEnd, Router} from '@angular/router';
 import {filter, takeUntil} from 'rxjs/operators';
 import {HeaderState, headerStateRoutesMatch, IRoutesMatch} from '../../core/models/header.model';
 import {CoreService} from '../../core/services/core.service';
+import {AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     public router: Router,
     private coreService: CoreService,
+    private authService: AuthService
   ) {
   }
 
@@ -53,7 +55,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public onLogout(): void {
-
+    this.authService.logout();
+    this.router.navigate(['/', 'login']);
   }
   checkUrl(router) {
     this.headerState = HeaderState.other;
