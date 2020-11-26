@@ -19,7 +19,7 @@ export interface Employees {
   position: string;
 }
 
-export interface NewEmployee {
+export interface Employee {
   id: number;
   login: string;
   password: string;

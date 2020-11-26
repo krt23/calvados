@@ -37,6 +37,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
         icon: '',
         name: 'New Employee',
         link: '/employees/new'
+      },
+      {
+        icon: '',
+        name: 'New Project',
+        link: '/projects/new'
       }
     );
     if (this.router.url === '/login') {

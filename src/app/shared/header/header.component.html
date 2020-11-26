@@ -10,7 +10,9 @@
       <ng-container [ngSwitch]="headerState">
         <ng-container *ngSwitchCase="headerStateConfig.projects">
           <button mat-flat-button
-                  color="primary">
+                  color="primary"
+                  class="roles"
+                  routerLink="/projects/new">
             New Project
           </button>
         </ng-container>

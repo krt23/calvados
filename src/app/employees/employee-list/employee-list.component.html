@@ -2,7 +2,7 @@
   <div class="employees-list-content-container">
     <div class="employees-list-table">
       <table mat-table
-             [dataSource]="dataSource" multiTemplateDataRows
+             [dataSource]="(employees| async).employees" multiTemplateDataRows
              class="mat-elevation-z8">
         <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
           <th mat-header-cell *matHeaderCellDef> {{column[0].toUpperCase() + column.slice(1)}} </th>
@@ -15,7 +15,8 @@
             <div class="employees-element-detail"
                  [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
               <div class="employees-element-description">
-                {{element.skills}}
+<!--                {{element.skills}}-->
+                abrakadabra
               </div>
             </div>
           </td>

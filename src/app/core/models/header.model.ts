@@ -21,14 +21,14 @@ export interface IHeaderStateRoutesMatch {
 export const headerStateRoutesMatch: IHeaderStateRoutesMatch = {
   projects: {
     route: '/projects',
-    exactMatch: true
+    exactMatch: false
   },
   calendar: {
     route: '/calendar',
     exactMatch: false
   },
   employees: {
-    route: '/employee',
+    route: '/employees',
     exactMatch: false
   },
   secretSanta: {

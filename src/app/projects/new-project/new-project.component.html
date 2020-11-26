@@ -1,0 +1,97 @@
+<div class="layout row container-fluid">
+  <div class="content layout column">
+    <div class="personal-settings">
+      <form [formGroup]="projectAddForm" role="form" class="form-horizontal">
+        <div class="project-info section">
+          <div class="block-header">
+            New Project
+          </div>
+          <div class="input-line">
+            <mat-form-field appearance="outline">
+              <mat-label>
+                Name
+              </mat-label>
+              <input matInput [formControl]="name">
+            </mat-form-field>
+          </div>
+          <div class="input-line">
+            <div class="input">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  Start Date
+                </mat-label>
+                <input matInput type="date" [formControl]="dateStart">
+              </mat-form-field>
+            </div>
+            <div class="input">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  Status
+                </mat-label>
+                <input matInput [formControl]="status">
+              </mat-form-field>
+            </div>
+          </div>
+            <div class="input-line">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  Link
+                </mat-label>
+                <input matInput [formControl]="link">
+              </mat-form-field>
+            </div>
+            <div class="input-line">
+              <mat-form-field appearance="outline">
+                <mat-label>
+                  Description
+                </mat-label>
+                <textarea matInput minlength="3" maxlength="256" [formControl]="description"></textarea>
+              </mat-form-field>
+            </div>
+        </div>
+      </form>
+      <mat-divider></mat-divider>
+      <div class="buttons">
+        <button mat-flat-button color="primary" (click)="onSubmit()"
+                [disabled]="projectAddForm.invalid">
+          Save
+        </button>
+        <button mat-flat-button class="disable-color" routerLink="/employees"> Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div class="content layout column list">
+    <div class="employee-list-section">
+      <div class="block-header">
+        Employee List
+      </div>
+<!--      <div class="permissions">-->
+<!--        <mat-accordion multi>-->
+<!--            <mat-expansion-panel class="permission-section">-->
+<!--              <mat-expansion-panel-header>-->
+<!--                <mat-checkbox color="primary"-->
+<!--                              class="role-permission-checkbox"-->
+<!--                              (click)="checkSection()"-->
+<!--                              (keydown)="$event.stopPropagation()">-->
+<!--                  {{ employee }}-->
+<!--                </mat-checkbox>-->
+<!--              </mat-expansion-panel-header>-->
+<!--              <ng-container *ngFor="let employee of (employees | async)">-->
+<!--                <div class="permission">-->
+<!--                  <span>-->
+<!--                    <mat-checkbox-->
+<!--                                  color="primary"-->
+<!--                                  (click)="togglePermission()">-->
+<!--&lt;!&ndash;                        {{ (roleForm.get('type').value === 'account') ? accountPermissions[permission.number] :&ndash;&gt;-->
+<!--&lt;!&ndash;                      mailboxPermissions[permission.number] }}&ndash;&gt;-->
+<!--                      {{ employee }}-->
+<!--                    </mat-checkbox>-->
+<!--                  </span>-->
+<!--                </div>-->
+<!--              </ng-container>-->
+<!--            </mat-expansion-panel>-->
+<!--        </mat-accordion>-->
+<!--      </div>-->
+    </div>
+  </div>
+</div>

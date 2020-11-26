@@ -17,6 +17,24 @@ export const Users = [
   }
 ];
 
+export const NewEmployees = [
+  {
+    id: 1,
+    login: 'admin',
+    password: 'admin',
+    firstName: 'Tanya',
+    lastName: 'Lei',
+    middleName: 'admin'
+  },
+  {
+    id: 2,
+    login: 'user',
+    password: 'user',
+    firstName: 'A',
+    lastName: 'L',
+    middleName: 'admin'
+  }
+];
 
 export const Employees = [
   {

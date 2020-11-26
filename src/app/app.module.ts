@@ -10,6 +10,8 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {fakeBackendProvider} from './core/interceptors/api.interceptor';
+import {StoreModule} from '@ngrx/store';
+import * as fromApp from './core/store/app.reducer';
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import {fakeBackendProvider} from './core/interceptors/api.interceptor';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(fromApp.appReducer)
   ],
   declarations: [
     AppComponent

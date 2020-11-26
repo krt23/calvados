@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
 import {HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS, HttpResponse} from '@angular/common/http';
 import {delay, dematerialize, materialize, mergeMap} from 'rxjs/operators';
-import {Employees, Users} from '../../MOCK-DATA/mock-data';
+import {Employees, NewEmployees, Users} from '../../MOCK-DATA/mock-data';
 
 const users = Users || [];
 const employees = Employees;
@@ -47,7 +47,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     function getEmployees() {
      // if (!isLoggedIn()) { return unauthorized(); }
      // return ok(employees);
-      return of(new HttpResponse({status: 200, body: Employees}));
+      return of(new HttpResponse({status: 200, body: NewEmployees}));
     }
 
     function ok(body?) {

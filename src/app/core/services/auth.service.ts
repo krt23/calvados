@@ -16,12 +16,12 @@ export class AuthService {
   }
 
   public get currentUserValue(): UsersInterface {
+    console.log(this.currentUserSubject.value);
     return this.currentUserSubject.value;
   }
 
   login(login: string, password: string) {
     const url = CoreService.baseUrl() + api.auth.login;
-    console.log(url);
     return this.http.post<any>(url, { login, password })
       .pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
