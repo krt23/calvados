@@ -2,7 +2,7 @@
   <div class="projects-list-content-container">
     <div class="projects-list-table">
       <table mat-table
-             [dataSource]="dataSource" multiTemplateDataRows
+             [dataSource]="(projects| async).projectList" multiTemplateDataRows
              class="mat-elevation-z8">
         <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
           <th mat-header-cell *matHeaderCellDef> {{column[0].toUpperCase() + column.slice(1)}} </th>

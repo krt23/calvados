@@ -2,9 +2,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Employee, EmployeesInterface} from '../../core/models/employees.model';
 import {EmployeeService} from '../../core/services/employee.service';
-import * as fromApp from '../../core/store/app.reducer';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
+import {AppState} from '../../core/store/state/app.state';
+import {GetEmployees} from '../../core/store/actions/employee.actions';
+import {selectEmployeeList} from '../../core/store/selectors/employee.selector';
 
 @Component({
   selector: 'app-employee-list',
@@ -19,26 +21,28 @@ import {Observable} from 'rxjs';
   ]
 })
 export class EmployeeListComponent implements OnInit, OnDestroy {
-  public employees: Observable<{employees: Employee[]}>;
+  public employees: Observable<{ employeeList: Employee[] }>;
   public columnsToDisplay: string[] = ['firstName', 'middleName', 'lastName', 'birthday', 'email', 'phone', 'project', 'position', 'dateStart'];
   public expandedElement: EmployeesInterface | null;
 
   constructor(
     private employeeService: EmployeeService,
-    private store: Store<fromApp.AppState>
+    private store: Store<AppState>
   ) {
   }
 
   ngOnInit(): void {
-    this.employees = this.store.select('employeesList');
-    //  this.getEmployees();
+   // this.store.dispatch(new GetEmployees());
+    this.employees = this.store.select('employees');
+    console.log(this.employees);
+   // this.getEmployees();
 
   }
 
   // getEmployees(): void {
-  // this.employeeService.getEmployees().pipe(first()).subscribe(employees => {
-  //   this.dataSource = employees;
-  // });
+  //   this.employeeService.getEmployees().pipe(first()).subscribe(employees => {
+  //     this.dataSource = employees;
+  //   });
   // }
 
   ngOnDestroy(): void {

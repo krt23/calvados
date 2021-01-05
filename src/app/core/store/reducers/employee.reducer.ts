@@ -1,23 +1,23 @@
-import {Employees, NewEmployees, Users} from '../../MOCK-DATA/mock-data';
-import {Action} from '@ngrx/store';
-import * as EmployeeActions from './employee.actions';
-import {UsersInterface} from '../models/users.model';
-import {Employee} from '../models/employees.model';
+import {ADD_EMPLOYEE, EmployeesActions} from '../actions/employee.actions';
+import {initialEmployeeState} from '../state/employee.state';
 
-export interface State {
-  employees: Employee[];
-}
 
-const initialState: State = {
-  employees: NewEmployees
-};
-
-export function employeeReducer(state = initialState, action: EmployeeActions.EmployeesActions) {
+export function employeeReducer(state = initialEmployeeState, action: EmployeesActions) {
   switch (action.type) {
-    case EmployeeActions.ADD_EMPLOYEE:
+    // case EmployeeActions.GET_EMPLOYEES:
+    //   return {
+    //     ...state,
+    //     employees: action.payload
+    //   };
+    // case EmployeeActions.GET_EMPLOYEE:
+    //   return {
+    //     ...state,
+    //     selectedEmployee: action.payload
+    //   };
+    case ADD_EMPLOYEE:
       return {
         ...state,
-        employees: [...state.employees, action.payload]
+        employeeList: [...state.employeeList, action.payload]
       };
     // case EmployeeActions.UPDATE_EMPLOYEE:
     //   const employee = state.employees[action.payload.index];

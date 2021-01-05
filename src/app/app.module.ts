@@ -11,7 +11,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {fakeBackendProvider} from './core/interceptors/api.interceptor';
 import {StoreModule} from '@ngrx/store';
-import * as fromApp from './core/store/app.reducer';
+import {appReducer} from './core/store/reducers/app.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {EmployeeEffects} from './core/store/effects/employee.effects';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import * as fromApp from './core/store/app.reducer';
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    StoreModule.forRoot(fromApp.appReducer)
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([EmployeeEffects]),
+
   ],
   declarations: [
     AppComponent

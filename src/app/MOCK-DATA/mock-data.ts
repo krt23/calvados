@@ -156,7 +156,7 @@ export const Employees = [
 ];
 
 
-export const Projects = [
+export const NewProjects = [
   {
     id: 1,
     name: 'Big project',
@@ -165,11 +165,13 @@ export const Projects = [
     descriptions: '',
     employees: [
       {
+        id: 1,
         firstName: 'Anatolii',
         lastName: 'T',
         position: 'Developer'
       },
       {
+        id: 2,
         firstName: 'Igor',
         lastName: 'K',
         position: 'Developer'
@@ -183,11 +185,13 @@ export const Projects = [
     descriptions: '',
     employees: [
       {
+        id: 1,
         firstName: 'Anatolii',
         lastName: 'T',
         position: 'Developer'
       },
       {
+        id: 2,
         firstName: 'Anatolii',
         lastName: 'Tsurkan',
         position: 'Developer'
@@ -201,11 +205,13 @@ export const Projects = [
     descriptions: '',
     employees: [
       {
+        id: 1,
         firstName: 'Igor',
         lastName: 'K',
         position: 'Developer'
       },
       {
+        id: 2,
         firstName: 'Igor',
         lastName: 'K',
         position: 'Developer'
@@ -219,11 +225,13 @@ export const Projects = [
     descriptions: '',
     employees: [
       {
+        id: 1,
         firstName: 'Tetyana',
         lastName: 'L',
         position: 'Developer'
       },
       {
+        id: 2,
         firstName: 'Tetyana',
         lastName: 'L',
         position: 'Developer'

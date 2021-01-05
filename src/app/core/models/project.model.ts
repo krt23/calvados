@@ -1,6 +1,7 @@
 import {Employees} from './employees.model';
 
-export interface ProjectsInterface {
+export interface ProjectInterface {
+  id: number;
   name: string;
   dateStart: string;
   status: string;

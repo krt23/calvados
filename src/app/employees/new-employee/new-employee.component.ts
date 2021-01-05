@@ -1,11 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Employee} from '../../core/models/employees.model';
 import {Observable, Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
 import {Location} from '@angular/common';
-import * as EmployeeActions from '../../core/store/employee.actions';
+import {AddEmployee} from '../../core/store/actions/employee.actions';
 
 @Component({
   selector: 'app-new-employee',
@@ -14,19 +13,19 @@ import * as EmployeeActions from '../../core/store/employee.actions';
 })
 export class NewEmployeeComponent implements OnInit, OnDestroy {
   public employee: Employee;
-  public users: Observable<{employees: Employee[]}>;
+  public employees: Observable<{employeeList: Employee[]}>;
   private unsubscribe$: Subject<void> = new Subject<void>();
   public employeeProfileEditForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private location: Location,
-    private store: Store<{ employeesList: {employees: Employee[]} }>
+    private store: Store<{ employees: {employeeList: Employee[]} }>
   ) { }
 
   ngOnInit(): void {
     this.initForm();
-    this.users = this.store.select('employeesList');
+    this.employees = this.store.select('employees');
   }
 
   private initForm(): void {
@@ -46,7 +45,8 @@ export class NewEmployeeComponent implements OnInit, OnDestroy {
   public onSubmit(): void {
     console.log('Save');
     const newEmployee = this.employeeProfileEditForm.value;
-    this.store.dispatch(new EmployeeActions.AddEmployee(newEmployee));
+    console.log(newEmployee);
+    this.store.dispatch(new AddEmployee(newEmployee));
     this.location.back();
     // this.userService.updateProfile(this.userProfileEditForm.value).subscribe(
     //   () => {

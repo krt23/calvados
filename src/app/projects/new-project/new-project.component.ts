@@ -1,9 +1,9 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {Employee} from '../../core/models/employees.model';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
 import {Store} from '@ngrx/store';
+import {ProjectInterface} from '../../core/models/project.model';
 
 @Component({
   selector: 'app-new-project',
@@ -12,8 +12,8 @@ import {Store} from '@ngrx/store';
 })
 
 export class NewProjectComponent implements OnInit, OnDestroy {
-  public employee: Employee;
-  public employees: Observable<{employees: Employee[]}>;
+  public project: ProjectInterface;
+  public projectList: Observable<{projectList: ProjectInterface[]}>;
   private unsubscribe$: Subject<void> = new Subject<void>();
   public projectAddForm: FormGroup;
   public hideNotSelected = false;
@@ -21,13 +21,12 @@ export class NewProjectComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private location: Location,
-    private store: Store<{ employeesList: {employees: Employee[]} }>
+    private store: Store<{ projects: { projectList: ProjectInterface[]} }>
   ) { }
 
   ngOnInit(): void {
     this.initForm();
-    this.employees = this.store.select('employeesList');
-    console.log(this.employees);
+    this.projectList = this.store.select('projects');
   }
 
   private initForm(): void {

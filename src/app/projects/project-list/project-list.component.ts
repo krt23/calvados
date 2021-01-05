@@ -1,7 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Projects} from '../../MOCK-DATA/mock-data';
-import {ProjectsInterface} from '../../core/models/project.model';
+import {ProjectInterface} from '../../core/models/project.model';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Observable} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../core/store/state/app.state';
 
 @Component({
   selector: 'app-project-list',
@@ -16,15 +18,17 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   ]
 })
 export class ProjectListComponent implements OnInit, OnDestroy {
-public dataSource = Projects;
-public columnsToDisplay: string[] = ['name', 'dateStart', 'status', 'descriptions'];
-public expandedElement: ProjectsInterface | null;
+  public projects: Observable<{ projectList: ProjectInterface[] }>;
+  public columnsToDisplay: string[] = ['name', 'dateStart', 'status', 'descriptions'];
+  public expandedElement: ProjectInterface | null;
+
   constructor(
+    private store: Store<AppState>
   ) {
   }
 
   ngOnInit(): void {
-
+    this.projects = this.store.select('projects');
   }
 
   ngOnDestroy(): void {
